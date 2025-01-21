@@ -54,7 +54,7 @@ app.get ('/books/:id', (req, res)=>{
 app.delete('/books/:id', (req, res)=>{
   const index = books.findIndex(book => book.book_id === req.params.id);
   if (index === -1){
-    return res.status(404)/json({error: `Book with ID ${req.params.id} not found.`});
+    return res.status(404).json({error: `Book with ID ${req.params.id} not found.`});
   }
   books.splice(index, 1);
   res.json({message: `Book with ID ${req.params.id} deleted`});
